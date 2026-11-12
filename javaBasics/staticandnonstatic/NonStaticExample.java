@@ -4,7 +4,6 @@ package staticandnonstatic;
 //non- sttatic also associated by reference name or object
 // non static is multiple copy
 
-
 class Employee1{
     int empId;
     String empName;
