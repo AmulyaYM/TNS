@@ -1,18 +1,23 @@
-package OOPS.encapsulation;
+package OOPS.abstraction.abstractkeyword;
+
+abstract class Employee{
+    void disp(){
+        System.out.println("show details");
+    }
+    abstract void show();
+}
+class A extends Employee{
+    void show(){
+        System.out.println("display details");
+    }
+}
 
 public class Main {
     public static void main(String[] args) {
-
-        Bank1 bank1 = new Bank1();
-
-        System.out.println("Balance: " + bank1.getBalance());
-
-        bank1.withdraw(500);
-
-        System.out.println("Balance: " + bank1.getBalance());
-
-        bank1.deposit(1000);
-
-        System.out.println("Balance: " + bank1.getBalance());
+        Employee emp = new A();//loose coupling -- low dependency on other class and changes in one class will not effect on other and we use inhetience in loose coupling
+        emp.show();
+        emp.disp();
     }
+
+
 }

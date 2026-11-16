@@ -18,7 +18,6 @@ public static void main(String[] args){
     Employee emp= new Employee(1,"abc");
     System.out.println(emp);
     System.out.println(emp.hashCode());
-
 }
 }
 
