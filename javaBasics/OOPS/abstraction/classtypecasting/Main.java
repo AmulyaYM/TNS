@@ -11,9 +11,9 @@ class B extends A{
     }
  }
 public class Main {
-    public static void Main(String[] args){
+    public static void main(String[] args){
         //upcasting 
-        //done by both implecit and explicit
+        //done by both implicit and explicit 
          B b = new B();
          A  a = new B();
          a.disp(); 
@@ -23,7 +23,5 @@ public class Main {
          B b2 =(B) a2;
          b2.show();
          b2.disp();
-
     }
-
 }

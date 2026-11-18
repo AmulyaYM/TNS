@@ -14,5 +14,4 @@ public class Main {
         b.show();
         System.out.println(A.a);
     }
-
 }
