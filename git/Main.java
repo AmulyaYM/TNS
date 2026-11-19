@@ -1,17 +1,17 @@
-package exceptionhandling.creatingexception.bankingsystem;
+package exceptionhandling.creatingexception.voterId;
 
 public class Main {
-    public static void main(String[] args) {
-        SavingsAccount s = new SavingsAccount();
 
-        s.getBal();
+    public static void main(String[] args) {
+
+        Person p = new Person(19, "abc");
+
+        p.display();
 
         try {
-            s.withdraw(500);
-        }
-        catch (BankException e) {
+            p.checkEligibility(p.age);
+        } catch (VoterIdException e) {
             System.out.println(e.getMessage());
-            s.getBal();
         }
     }
 }
