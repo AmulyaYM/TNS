@@ -1,20 +1,37 @@
-package runnableinterface;
+package threadexample1;
 
-class A implements Runnable {
+class A extends Thread {
 
     public void run() {
-        for (int i = 1; i <= 10; i++) {
-            System.out.println(i);
+        try {
+            Thread.sleep(10000);
+        } catch (InterruptedException e) {
+            e.printStackTrace();
+        }
+        // for (int i = 100; i <= 200; i++) {
+
+        //System.out.println(Thread.currentThread().getName());
+        // }
+    }
+}
+
+// nor
+class B extends Thread {
+
+    public void run() {
+        for (int i = 200; i <= 300; i++) {
             System.out.println(Thread.currentThread().getName());
         }
     }
 }
 
-class B implements Runnable {
+// eme
+class C extends Thread {
 
     public void run() {
-        for (int i = 11; i <= 20; i++) {
-            System.out.println(i);
+
+        for (int i = 300; i <= 400; i++) {
+
             System.out.println(Thread.currentThread().getName());
         }
     }
@@ -22,15 +39,24 @@ class B implements Runnable {
 
 public class Main {
 
-    public static void main(String[] args) {
-
+    public static void main(String[] args) throws InterruptedException {
         A a = new A();
+        System.out.println(a.getState());
+        a.start();
+        System.out.println(a.getState());
+        a.sleep(500);
+        System.out.println(a.getState());
+        a.join();
+        System.out.println(a.getState());
+        // a.setPriority(Thread.MIN_PRIORITY);
+
         B b = new B();
-
-        Thread t1 = new Thread(a);
-        Thread t2 = new Thread(b);
-
-        t1.start();
-        t2.start();
+        //b.setPriority(Thread.MIN_PRIORITY);
+        C c = new C();
+        //c.setPriority(Thread.MAX_PRIORITY);
+        //c.start();
+        // c.join();
+        // a.start();
+        //b.start();
     }
 }
