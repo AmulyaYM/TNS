@@ -1,62 +1,39 @@
-package threadexample1;
 
-class A extends Thread {
+class A {
 
-    public void run() {
-        try {
-            Thread.sleep(10000);
-        } catch (InterruptedException e) {
-            e.printStackTrace();
-        }
-        // for (int i = 100; i <= 200; i++) {
-
-        //System.out.println(Thread.currentThread().getName());
-        // }
-    }
-}
-
-// nor
-class B extends Thread {
-
-    public void run() {
-        for (int i = 200; i <= 300; i++) {
-            System.out.println(Thread.currentThread().getName());
-        }
-    }
-}
-
-// eme
-class C extends Thread {
-
-    public void run() {
-
-        for (int i = 300; i <= 400; i++) {
-
-            System.out.println(Thread.currentThread().getName());
-        }
+    void display() {
+        System.out.println(Thread.currentThread().getName());
     }
 }
 
 public class Main {
 
-    public static void main(String[] args) throws InterruptedException {
-        A a = new A();
-        System.out.println(a.getState());
-        a.start();
-        System.out.println(a.getState());
-        a.sleep(500);
-        System.out.println(a.getState());
-        a.join();
-        System.out.println(a.getState());
-        // a.setPriority(Thread.MIN_PRIORITY);
-
-        B b = new B();
-        //b.setPriority(Thread.MIN_PRIORITY);
-        C c = new C();
-        //c.setPriority(Thread.MAX_PRIORITY);
-        //c.start();
-        // c.join();
-        // a.start();
-        //b.start();
+    void show() {
+        System.out.println(Thread.currentThread().getName());
+        System.out.println(Thread.currentThread().getId());
     }
+
+    public static void main(String[] args) {
+        //it is excecution instance which has its own cpu time and memory
+        //threads extends runnable interface
+        //runnable interface is functional interface
+        //functional interface is a interface which has one abstract method
+        //we can achieve thread by extending thread class &implemnting runnable interface
+        //each and every method has  thread
+        //inside main method we will be having main thread ,ehich is root for all thread 
+        // thread has three property - id, name-name of the thread it can be change 
+        //priority -0min to 10(max),5(normal)
+
+        System.out.println(Thread.currentThread().getName());
+        System.out.println(Thread.currentThread().getPriority());
+        System.out.println(Thread.currentThread().getId());
+
+        A a = new A();
+        a.display();
+
+        Main main = new Main();
+        main.show();
+
+    }
+
 }
