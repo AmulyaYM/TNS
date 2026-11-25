@@ -22,7 +22,7 @@ public class HashSetTreeSet {
         set2.add(10);
 
         set2.add(23);
-        set2.add(null);
+        //set2.add(null);
 
         System.out.println(set);
         System.out.println(set2);
